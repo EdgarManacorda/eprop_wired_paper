@@ -14,21 +14,11 @@ project:
       name: python3
 
   authors:
-    - name: YOUR NAME
-      affiliations: aff1
-      corresponding: true
-      email: YOUR_EMAIL
+    - name: Edgar Manacorda
       roles:
         - Software
         - Visualization
         - Writing
-
-  affiliations:
-    - id: aff1
-      institution: YOUR INSTITUTION
-      department: YOUR DEPARTMENT
-      city: YOUR CITY
-      country: YOUR COUNTRY
 
   keywords:
     - spiking neural networks
@@ -54,7 +44,9 @@ project:
   toc:
     - file: paper.md
     - file: content/figure_dvs_results.ipynb
+      hidden: true
     - file: content/figure_mc_results.ipynb
+      hidden: true
 
   static_files:
     - downloads
@@ -73,6 +65,7 @@ project:
     - downloads/mc_maze_interactive_training_curves.html
     - downloads/dvs_gesture_3d_network.html
     - downloads/mc_maze_3d_network.html
+
 
 site:
   template: article-theme
