@@ -56,6 +56,9 @@ project:
     - file: content/figure_dvs_results.ipynb
     - file: content/figure_mc_results.ipynb
 
+  static_files:
+    - downloads
+
   resources:
     - content/figure_dvs_results.ipynb
     - content/figure_mc_results.ipynb
@@ -72,26 +75,36 @@ project:
     - downloads/mc_maze_3d_network.html
 
   downloads:
-    - file: downloads/dvs_training_log.csv
+    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/dvs_training_log.csv
       title: DVS Gesture training log
-    - file: downloads/mc_maze_training_log.csv
+      filename: dvs_training_log.csv
+    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/mc_maze_training_log.csv
       title: MC_Maze training log
-    - file: downloads/dvs_gesture_interactive_training_curves.html
+      filename: mc_maze_training_log.csv
+    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/dvs_gesture_interactive_training_curves.html
       title: DVS Gesture interactive training curves
-    - file: downloads/mc_maze_interactive_training_curves.html
+      filename: dvs_gesture_interactive_training_curves.html
+    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/mc_maze_interactive_training_curves.html
       title: MC_Maze interactive training curves
-    - file: downloads/dvs_gesture_3d_network.html
+      filename: mc_maze_interactive_training_curves.html
+    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/dvs_gesture_3d_network.html
       title: DVS Gesture 3D network browser
-    - file: downloads/mc_maze_3d_network.html
+      filename: dvs_gesture_3d_network.html
+    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/mc_maze_3d_network.html
       title: MC_Maze 3D network browser
-    - file: downloads/make_interactive_training_figures.py
+      filename: mc_maze_3d_network.html
+    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/make_interactive_training_figures.py
       title: Interactive training-curve generator
-    - file: downloads/make_3d_unified_network_browser_per_family.py
+      filename: make_interactive_training_figures.py
+    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/make_3d_unified_network_browser_per_family.py
       title: 3D network-browser generator
-    - file: downloads/dvs_gesture_native_nest_eprop.py
+      filename: make_3d_unified_network_browser_per_family.py
+    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/dvs_gesture_native_nest_eprop.py
       title: DVS Gesture native NEST e-prop training script
-    - file: downloads/mc_maze_native_nest_eprop.py
+      filename: dvs_gesture_native_nest_eprop.py
+    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/mc_maze_native_nest_eprop.py
       title: MC_Maze native NEST e-prop training script
+      filename: mc_maze_native_nest_eprop.py
 
 site:
   template: article-theme
