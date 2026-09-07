@@ -1,0 +1,98 @@
+version: 1
+
+project:
+  title: Native NEST e-prop for Spiking Neural Networks
+  subtitle: From synaptic plasticity to trainable spiking models
+
+  thebe:
+    enabled: true
+    binder:
+      url: https://mybinder.org
+      repo: EdgarManacorda/eprop_wired_paper
+      ref: HEAD
+    kernel:
+      name: python3
+
+  authors:
+    - name: YOUR NAME
+      affiliations: aff1
+      corresponding: true
+      email: YOUR_EMAIL
+      roles:
+        - Software
+        - Visualization
+        - Writing
+
+  affiliations:
+    - id: aff1
+      institution: YOUR INSTITUTION
+      department: YOUR DEPARTMENT
+      city: YOUR CITY
+      country: YOUR COUNTRY
+
+  keywords:
+    - spiking neural networks
+    - e-prop
+    - NEST Simulator
+    - DVS Gesture
+    - MC_Maze
+    - interactive scientific publication
+
+  github: EdgarManacorda/eprop_wired_paper
+  venue: NeuroLibre
+  subject: Living Preprint
+  numbering:
+    headings: true
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: MIT
+
+  bibliography:
+    - paper.bib
+
+  toc:
+    - file: paper.md
+    - file: content/figure_dvs_results.ipynb
+    - file: content/figure_mc_results.ipynb
+
+  resources:
+    - content/figure_dvs_results.ipynb
+    - content/figure_mc_results.ipynb
+    - content/Dash_client.py
+    - content/data/dvs_training_log.csv
+    - content/data/mc_maze_training_log.csv
+    - downloads/dvs_gesture_native_nest_eprop.py
+    - downloads/mc_maze_native_nest_eprop.py
+    - downloads/make_interactive_training_figures.py
+    - downloads/make_3d_unified_network_browser_per_family.py
+    - downloads/dvs_gesture_interactive_training_curves.html
+    - downloads/mc_maze_interactive_training_curves.html
+    - downloads/dvs_gesture_3d_network.html
+    - downloads/mc_maze_3d_network.html
+
+  downloads:
+    - file: downloads/dvs_training_log.csv
+      title: DVS Gesture training log
+    - file: downloads/mc_maze_training_log.csv
+      title: MC_Maze training log
+    - file: downloads/dvs_gesture_interactive_training_curves.html
+      title: DVS Gesture interactive training curves
+    - file: downloads/mc_maze_interactive_training_curves.html
+      title: MC_Maze interactive training curves
+    - file: downloads/dvs_gesture_3d_network.html
+      title: DVS Gesture 3D network browser
+    - file: downloads/mc_maze_3d_network.html
+      title: MC_Maze 3D network browser
+    - file: downloads/make_interactive_training_figures.py
+      title: Interactive training-curve generator
+    - file: downloads/make_3d_unified_network_browser_per_family.py
+      title: 3D network-browser generator
+    - file: downloads/dvs_gesture_native_nest_eprop.py
+      title: DVS Gesture native NEST e-prop training script
+    - file: downloads/mc_maze_native_nest_eprop.py
+      title: MC_Maze native NEST e-prop training script
+
+site:
+  template: article-theme
+  url: https://EdgarManacorda.github.io/eprop_wired_paper
