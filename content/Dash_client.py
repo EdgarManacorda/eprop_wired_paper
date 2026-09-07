@@ -217,6 +217,11 @@ class EpropClient:
             },
             xaxis=dict(title="Group / iteration"),
             yaxis=yaxis_update(first_metric),
+            # Give the live MyST/Jupyter rendering an explicit vertical size.
+            # Without this, the interactive output container can collapse to a
+            # much shorter default height when the figure is activated.
+            autosize=True,
+            height=600,
             hovermode="closest",
             template="plotly_white",
             legend=dict(title="Phase"),
