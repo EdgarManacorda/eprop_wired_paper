@@ -74,38 +74,6 @@ project:
     - downloads/dvs_gesture_3d_network.html
     - downloads/mc_maze_3d_network.html
 
-  downloads:
-    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/dvs_training_log.csv
-      title: DVS Gesture training log
-      filename: dvs_training_log.csv
-    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/mc_maze_training_log.csv
-      title: MC_Maze training log
-      filename: mc_maze_training_log.csv
-    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/dvs_gesture_interactive_training_curves.html
-      title: DVS Gesture interactive training curves
-      filename: dvs_gesture_interactive_training_curves.html
-    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/mc_maze_interactive_training_curves.html
-      title: MC_Maze interactive training curves
-      filename: mc_maze_interactive_training_curves.html
-    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/dvs_gesture_3d_network.html
-      title: DVS Gesture 3D network browser
-      filename: dvs_gesture_3d_network.html
-    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/mc_maze_3d_network.html
-      title: MC_Maze 3D network browser
-      filename: mc_maze_3d_network.html
-    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/make_interactive_training_figures.py
-      title: Interactive training-curve generator
-      filename: make_interactive_training_figures.py
-    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/make_3d_unified_network_browser_per_family.py
-      title: 3D network-browser generator
-      filename: make_3d_unified_network_browser_per_family.py
-    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/dvs_gesture_native_nest_eprop.py
-      title: DVS Gesture native NEST e-prop training script
-      filename: dvs_gesture_native_nest_eprop.py
-    - url: https://edgarmanacorda.github.io/eprop_wired_paper/downloads/mc_maze_native_nest_eprop.py
-      title: MC_Maze native NEST e-prop training script
-      filename: mc_maze_native_nest_eprop.py
-
 site:
   template: article-theme
   url: https://EdgarManacorda.github.io/eprop_wired_paper
