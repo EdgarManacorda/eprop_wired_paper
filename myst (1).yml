@@ -1,0 +1,66 @@
+version: 1
+
+project:
+  title: Native NEST e-prop for Spiking Neural Networks
+  subtitle: From synaptic plasticity to trainable spiking models
+
+  thebe:
+    enabled: true
+    binder:
+      url: https://mybinder.org
+      repo: EdgarManacorda/eprop_wired_paper
+      ref: HEAD
+    kernel:
+      name: python3
+
+  authors:
+    - name: Edgar Manacorda
+      roles:
+        - Software
+        - Visualization
+        - Writing
+
+  keywords:
+    - spiking neural networks
+    - e-prop
+    - NEST Simulator
+    - DVS Gesture
+    - MC_Maze
+    - interactive scientific publication
+
+  github: EdgarManacorda/eprop_wired_paper
+  venue: NeuroLibre
+  subject: Living Preprint
+  numbering:
+    headings: true
+  open_access: true
+  license:
+    content: CC-BY-4.0
+    code: MIT
+
+  bibliography:
+    - paper.bib
+
+  toc:
+    - file: paper.md
+    - file: content/figure_dvs_results.ipynb
+      hidden: true
+    - file: content/figure_mc_results.ipynb
+      hidden: true
+
+  static_files:
+    - downloads
+
+  resources:
+    - content/figure_dvs_results.ipynb
+    - content/figure_mc_results.ipynb
+    - content/Dash_client.py
+    - content/data/dvs_training_log.csv
+    - content/data/mc_maze_training_log.csv
+    - downloads/dvs_gesture_native_nest_eprop.py
+    - downloads/mc_maze_native_nest_eprop.py
+
+
+site:
+  template: article-theme
+  url: https://EdgarManacorda.github.io/eprop_wired_paper
