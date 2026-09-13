@@ -31,8 +31,7 @@ project:
   github: EdgarManacorda/eprop_wired_paper
   venue: NeuroLibre
   subject: Living Preprint
-  numbering:
-    headings: true
+
   open_access: true
   license:
     content: CC-BY-4.0
