@@ -11,6 +11,8 @@ tags:
 This tutorial presents native NEST e-prop for recurrent spiking neural networks using two spike-based classification tasks: DVS Gesture event-camera data and MC_Maze neural population activity. The workflow connects input preprocessing, recurrent SNN training, diagnostic learning curves, and interactive visualization of learned synaptic-weight changes.
 +++
 
+# Introduction
+
 The brain learns by changing the strength of synaptic connections between neurons. This ability, known as synaptic plasticity, allows neural circuits to adapt their activity based on experience. Rather than communicating with continuous values, biological neurons exchange information through brief electrical events called spikes. Learning therefore emerges from the interaction between spike timing, neural dynamics, and changes in synaptic strength.
 
 Spiking neural networks (SNNs) are computational models inspired by this principle. In an SNN, neurons do not transmit continuous activations at every step, as in standard artificial neural networks. Instead, they integrate incoming signals over time and emit a spike only when their internal state reaches a threshold [@Gerstner2002; @Neftci2019]. This event-driven mode of computation makes SNNs especially well suited for temporal and sparse data, such as event-camera recordings or neural spike trains. It also makes them attractive for neuromorphic computing and for modeling biological neural circuits more faithfully.
