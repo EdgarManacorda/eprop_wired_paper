@@ -1,8 +1,8 @@
 version: 1
 
 project:
-  title: Native NEST e-prop for Spiking Neural Networks
-  subtitle: From synaptic plasticity to trainable spiking models
+  title: Training Recurrent Spiking Neural Networks with Native NEST e-prop: An Interactive Tutorial
+  subtitle: Applications to DVS Gesture and MC_Maze
 
   thebe:
     enabled: true
