@@ -54,11 +54,8 @@ project:
     - content/figure_dvs_results.ipynb
     - content/figure_mc_results.ipynb
     - content/Dash_client.py
-    - content/data/dvs_training_log.csv
-    - content/data/mc_maze_training_log.csv
     - downloads/dvs_gesture_native_nest_eprop.py
     - downloads/mc_maze_native_nest_eprop.py
-
 
 site:
   template: article-theme
