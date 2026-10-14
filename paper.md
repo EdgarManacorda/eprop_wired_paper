@@ -114,15 +114,17 @@ During evaluation, the learning rate is set to zero. The same network is simulat
 :::{figure} static/fig6_dvs_architecture.png
 :label: fig-dvs-architecture
 :align: center
-Native NEST e-prop architecture for DVS Gesture classification. The DVS Gesture model receives a compressed 500 ms spike raster derived from the preprocessed event-camera recording, with 512 input channels ($16 \times 16 \times 2$) corresponding to the spatially downsampled ON and OFF event streams. These input spikes are provided to NEST through spike generators and relayed by parrot neurons before reaching a population of 150 recurrent LIF neurons.
-Plastic synapses connect the relay layer to the recurrent population, recurrent neurons to each other, and recurrent neurons to 4 readout neurons, one for each gesture class. During training, readout activity is compared with class-specific target signals, and the resulting e-prop learning signal modulates synaptic updates together with local eligibility traces.
+Native NEST e-prop architecture for DVS Gesture classification. A 500 ms spike raster with 512 input channels is relayed to 150 recurrent LIF neurons and projected to four class-specific readout neurons. During training, the e-prop learning signal combines with local eligibility traces to update the plastic synapses.
 :::
+The input representation corresponds to spatially downsampled ON and OFF event streams ($16 \times 16 \times 2$). Spike generators provide the inputs to NEST through a one-to-one parrot-neuron relay layer. Plastic connections are used from the relay layer to the recurrent population, within the recurrent population, and from recurrent neurons to the readout layer.
+
 :::{figure} static/fig7_mc_architecture.png
 :label: fig-mc-architecture
 :align: center
-Native NEST e-prop architecture for MC_Maze classification. The MC_Maze model receives a 1500 ms spike raster extracted from 182 recorded neural units. Input spike trains are delivered through spike generators and relayed by parrot neurons to a recurrent population of 150 LIF neurons. Plastic synapses are used for the input-to-recurrent, recurrent-to-recurrent, and recurrent-to-readout connections. The readout layer contains 24 neurons, organized as 8 classes repeated across 3 temporal readout segments.
-These segments provide class-specific activity over successive portions of the trial, and the final class prediction is obtained by combining readout activity across the three segments. During training, the readout activity is compared with class-specific target signals, and the error is returned to the recurrent population through the e-prop feedback signal $B_{jk}$.
+Native NEST e-prop architecture for MC_Maze classification. A 1500 ms spike raster from 182 recorded units is relayed to 150 recurrent LIF neurons. The readout contains 24 neurons organized as eight classes across three 500 ms temporal segments.
 :::
+The three readout segments provide class-specific activity over successive portions of the trial. The final prediction combines activity across these segments. During training, readout activity is compared with the target signal and the resulting e-prop feedback signal $B_{jk}$ is returned to the recurrent population.
+
 # Implementation overview
 
 The full commented scripts are provided separately as downloadable files. Both scripts follow the same general workflow: load the dataset, convert samples into spike trains, build the native NEST e-prop network, train with plastic `eprop_synapse` connections, evaluate with learning disabled, and save the resulting metrics, figures, predictions, and weight matrices.
