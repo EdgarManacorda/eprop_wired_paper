@@ -94,6 +94,7 @@ For the MC_Maze model, the readout is divided into three temporal segments of 50
 # Native NEST e-prop network architecture
 
 Both models use the same general native NEST e-prop structure. Preprocessed spike trains are first provided to the network as input spike sources, then relayed to a recurrent spiking population, and finally projected to task-specific readout neurons.
+
 The recurrent module contains 150 leaky integrate-and-fire (LIF) neurons implemented with the native NEST `eprop_iaf` model [@NESTeprop]. These neurons form the recurrent core of the network. Their activity is shaped by three trainable weight matrices:
 
 - `W_in_rec`: input relay layer $\rightarrow$ recurrent neurons
@@ -101,9 +102,13 @@ The recurrent module contains 150 leaky integrate-and-fire (LIF) neurons impleme
 - `W_rec_out`: recurrent neurons $\rightarrow$ readout neurons
 
 These matrices are sparse: not every possible connection is present in the network. As a result, each neuron receives input from only a subset of neurons, and the exact connectivity pattern depends on the chosen sparsity parameters.
+
 The input stage converts the preprocessed spike rasters into NEST spike sources. These sources are connected one-to-one to an input relay layer, implemented with parrot neurons. The relay layer then projects to the recurrent population through sparse plastic synapses. Inside the recurrent module, neurons are also connected to one another through sparse recurrent plastic synapses. Finally, the recurrent population projects to the readout layer through trainable recurrent-to-readout connections.
+
 The recurrent-to-recurrent matrix, `W_rec_rec`, is particularly important because it defines how activity circulates within the recurrent population. In other words, it controls the internal temporal dynamics of the network, rather than simply passing information forward from input to output.
+
 During training, the readout activity is compared with target teaching signals. The resulting error information is sent back toward the recurrent population through an `eprop_learning_signal_connection`, represented by the feedback signal $B_{jk}$. Synaptic weights are then updated through `eprop_synapse` connections using the combination of local eligibility traces and the learning signal [@NESTeprop].
+
 During evaluation, the learning rate is set to zero. The same network is simulated, but the synaptic weights are no longer updated, so the model only produces predictions.
 
 :::{figure} static/fig6_dvs_architecture.png
@@ -131,6 +136,7 @@ The two complete, commented training scripts used for the tutorial are available
 # Training results and diagnostics
 
 During training, three quantities were monitored: classification accuracy, loss, and recurrent firing rate. Accuracy and loss summarize task performance, while the recurrent firing rate is used as an additional diagnostic specific to spiking networks.
+
 The firing rate is particularly useful because an SNN can fail even when the training loop runs correctly. If recurrent activity is too low, the network may be almost silent and unable to propagate information. If activity is too high, the recurrent dynamics may become unstable or overly driven. A useful run should therefore show learning progress while keeping recurrent activity in a reasonable range.
 :::{attention} Interactive training curves
 Use the metric selector to switch between accuracy, MSE-like loss, and mean recurrent firing rate. Hover over any point to inspect its exact iteration and value. If a NeuroLibre/Evidence preview shows only the static placeholder, attach the computational runtime and execute the corresponding figure cell.
@@ -144,6 +150,7 @@ Use the metric selector to switch between accuracy, MSE-like loss, and mean recu
 DVS Gesture training results. The selector switches between classification accuracy, MSE-like loss, and mean recurrent firing rate. Training, train-evaluation, and test phases are displayed as separate traces, and hovering over a point reports its exact values.
 :::
 For DVS Gesture, the training accuracy increases rapidly during the first training iterations and reaches approximately 0.8–0.9 near the end of training. When learning is disabled, train-evaluation and test accuracy remain high, indicating that the network learned the four-class gesture task and generalized reasonably well to held-out samples within this reduced four-class tutorial subset.
+
 The loss decreases steadily across training, showing that the readout activity becomes progressively closer to the target signal. At the same time, the recurrent firing rate decreases from a relatively high initial value to a lower and stable regime around the end of training. This suggests that learning does not simply increase network activity but instead modifies the recurrent dynamics while keeping the network active.
 ## MC_Maze
 
@@ -154,7 +161,9 @@ The loss decreases steadily across training, showing that the readout activity b
 MC_Maze training results. The selector switches between classification accuracy, MSE-like loss, and mean recurrent firing rate. Training, train-evaluation, and validation phases are displayed as separate traces, and hovering over a point reports its exact values.
 :::
 For MC_Maze, the training accuracy increases over time and reaches high values near the end of training. Train-evaluation accuracy remains high, whereas validation accuracy is more variable and lower, suggesting that the model learns structure from the neural spike trains but generalizes less stably than in the DVS Gesture example.
+
 The loss decreases throughout training, which confirms that the readout signals move closer to the target signals. However, the validation loss remains noisier near the end, consistent with the more variable validation accuracy. The recurrent firing rate stays active throughout the run, mostly around the mid-20 Hz range, showing that the network remains active without an obvious collapse to silence or runaway increase in mean firing rate.
+
 Overall, the MC_Maze run should be interpreted as a working native NEST e-prop proof of concept on neural population data rather than as an optimized decoding model.
 # Visualizing learned weight changes
 
@@ -223,6 +232,7 @@ Finally, e-prop is more biologically inspired than BPTT, but the model remains a
 Native NEST e-prop provides a practical framework for training recurrent spiking neural networks with eligibility traces and learning signals.
 
 In this tutorial, the same learning principle is applied to two different spike-based inputs: event-camera data from DVS Gesture and neural population activity from MC_Maze. The resulting workflow connects data preprocessing, recurrent SNN training, diagnostic curves, and interactive weight visualization.
+
 Overall, the tutorial shows how the learning process can be followed from the input spike representation to the recurrent network dynamics, the readout activity, and the resulting synaptic weight changes. By combining diagnostic curves with interactive weight visualization, the examples provide a practical way to inspect how recurrent spiking networks learn from temporal data.
 +++ {"part": "data_availability"}
 The two complete training scripts used to generate the tutorial results are provided as supporting files. The interactive diagnostic figures are embedded in the article, and the 3D network browsers are available through full-size external views. The original DVS Gesture and MC_Maze datasets remain referenced through their respective source publications and repositories.
