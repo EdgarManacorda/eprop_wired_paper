@@ -30,6 +30,7 @@ After emitting a spike, the neuron is reset and begins integrating again. In pra
 Basic behavior of a leaky integrate-and-fire neuron. Incoming signals are integrated over time, the membrane potential decays in the absence of input, and a spike is emitted when threshold is crossed.
 :::
 Training recurrent SNNs is challenging. In conventional recurrent neural networks, learning is often performed with backpropagation through time (BPTT). BPTT works by unfolding the recurrent network across all time steps, storing the relevant states, and propagating errors backward through the full temporal history. This approach is powerful, but it is computationally heavy and biologically difficult to interpret, because synaptic updates depend on non-local information propagated backward in time.
+
 Eligibility propagation (e-prop) provides a more biologically inspired alternative for recurrent spiking networks [@Bellec2020]. The key idea is to factor learning into two parts:
 
 - a local eligibility trace at each synapse, which captures the recent interaction between pre- and post-synaptic activity;
