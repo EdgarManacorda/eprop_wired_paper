@@ -127,7 +127,7 @@ The three readout segments provide class-specific activity over successive porti
 
 # Implementation overview
 
-The full commented scripts are provided separately as downloadable files. Both scripts follow the same general workflow: load the dataset, convert samples into spike trains, build the native NEST e-prop network, train with plastic `eprop_synapse` connections, evaluate with learning disabled, and save the resulting metrics, figures, predictions, and weight matrices.
+The fully commented scripts are provided separately as downloadable files. Both scripts follow the same general workflow: load the dataset, convert samples into spike trains, build the native NEST e-prop network, train with plastic `eprop_synapse` connections, evaluate with learning disabled, and save the resulting metrics, figures, predictions, and weight matrices.
 The main difference between the two implementations is the input and target structure. DVS Gesture uses compressed event-camera spike rasters with 4 class readouts, while MC_Maze uses neural spike rasters and a temporal readout organized into 3 segments $\times$ 8 classes.
 
 The training scripts assume that the corresponding datasets are available at the paths documented in their headers. In particular, the MC_Maze script expects preprocessed, movement-aligned spike files and does not itself preprocess the raw DANDI archive.
