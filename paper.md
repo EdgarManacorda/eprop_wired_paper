@@ -185,6 +185,7 @@ For the clearest view and easiest manipulation of the 3D network, open each brow
 
 - [Open the DVS Gesture 3D network browser](https://eprop-wired-dashboard.onrender.com/network/dvs_gesture)
 - [Open the MC_Maze 3D network browser](https://eprop-wired-dashboard.onrender.com/network/mc_maze)
+
 The browsers allow the input, recurrent, and readout neurons to be displayed together. Separate top-k sliders control the number of visible `W_in_rec`, `W_rec_rec`, and `W_rec_out` connections.
 :::
 
