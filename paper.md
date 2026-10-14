@@ -20,6 +20,7 @@ A common neuron model used in SNNs is the leaky integrate-and-fire (LIF) neuron.
 - it integrates incoming synaptic inputs over time;
 - its membrane potential leaks back toward rest in the absence of input;
 - and it fires a spike when the membrane potential crosses a threshold.
+
 After emitting a spike, the neuron is reset and begins integrating again. In practice, this gives rise to a characteristic behavior: the membrane potential gradually rises with input, decays when input is absent and produces a discrete spike when it exceeds threshold. In native NEST e-prop models, recurrent neurons are implemented with the `eprop_iaf` model, which is based on a leaky integrate-and-fire neuron and is designed to support eligibility-propagation learning.
 :::{figure} static/fig1_lif.png
 :label: fig-lif
@@ -65,6 +66,7 @@ The polarity indicates the direction of the brightness change:
 
 - ON event = brightness increased
 - OFF event = brightness decreased
+
 This representation is naturally sparse and temporal, which makes it well suited for spiking neural networks.
 
 For the tutorial run, a simplified configuration is used. Four gesture labels are selected, with 60 training samples and 20 test samples per label. Each event stream is converted into a compact spike-based representation before being sent to the NEST network.
@@ -95,6 +97,7 @@ The recurrent module contains 150 leaky integrate-and-fire (LIF) neurons impleme
 - `W_in_rec`: input relay layer $\rightarrow$ recurrent neurons
 - `W_rec_rec`: recurrent neurons $\rightarrow$ recurrent neurons
 - `W_rec_out`: recurrent neurons $\rightarrow$ readout neurons
+
 These matrices are sparse: not every possible connection is present in the network. As a result, each neuron receives input from only a subset of neurons, and the exact connectivity pattern depends on the chosen sparsity parameters.
 The input stage converts the preprocessed spike rasters into NEST spike sources. These sources are connected one-to-one to an input relay layer, implemented with parrot neurons. The relay layer then projects to the recurrent population through sparse plastic synapses. Inside the recurrent module, neurons are also connected to one another through sparse recurrent plastic synapses. Finally, the recurrent population projects to the readout layer through trainable recurrent-to-readout connections.
 The recurrent-to-recurrent matrix, `W_rec_rec`, is particularly important because it defines how activity circulates within the recurrent population. In other words, it controls the internal temporal dynamics of the network, rather than simply passing information forward from input to output.
@@ -202,6 +205,7 @@ For MC_Maze, useful variants include:
 - sequence duration;
 - alignment event;
 - number of classes.
+
 These parameters affect both classification performance and spiking dynamics. For example, increasing the input or background drive can make the network more active, but too much activity may reduce stability. Conversely, weights that are too small can make the recurrent population nearly silent. The recurrent firing rate curve is therefore useful when tuning the model, because it helps distinguish a network that fails to learn from one that simply does not spike enough.
 # Limitations and possible extensions
 
